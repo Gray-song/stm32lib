@@ -123,7 +123,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>1</UseSimulator>
+            <UseSimulator>0</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -135,7 +135,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>0</UseTarget>
+            <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -147,7 +147,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>4</TargetSelection>
+          <TargetSelection>6</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -309,8 +309,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8008000</StartAddress>
-                <Size>0x38000</Size>
+                <StartAddress>0x8000000</StartAddress>
+                <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -463,6 +463,11 @@
               <FileType>1</FileType>
               <FilePath>..\drv\src\drv_dac.c</FilePath>
             </File>
+            <File>
+              <FileName>drv_simulation_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drv\src\drv_simulation_iic.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -518,10 +523,42 @@
               <FileType>1</FileType>
               <FilePath>..\hal\src\hal_dac.c</FilePath>
             </File>
+            <File>
+              <FileName>hal_eeprom_24c02.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\hal_eeprom_24c02.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_simulation_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\hal_simulation_iic.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>app</GroupName>
+          <Files>
+            <File>
+              <FileName>adc_dac_test_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\src\adc_dac_test_demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>eeprom_24c02_test_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\src\eeprom_24c02_test_demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_test_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\src\gpio_test_demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>input_cap_test_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\src\input_cap_test_demo.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>sys</GroupName>

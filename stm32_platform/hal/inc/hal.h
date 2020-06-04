@@ -22,6 +22,8 @@
 #include "hal_timer.h"
 #include "hal_adc.h"
 #include "hal_dac.h"
+#include "hal_simulation_iic.h"
+#include "hal_eeprom_24c02.h"
 extern sys_clk_freq_info_t g_sys_clock_info;
 extern void hal_init(void);
 #endif

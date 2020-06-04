@@ -435,7 +435,8 @@ void TIM1_CC_IRQHandler()
         }
         TIM1->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM1->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM1->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER1].p_tim_cc2_interrupt != NULL)
         {
@@ -443,7 +444,8 @@ void TIM1_CC_IRQHandler()
         }
         TIM1->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM1->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM1->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER1].p_tim_cc3_interrupt != NULL)
         {
@@ -451,7 +453,8 @@ void TIM1_CC_IRQHandler()
         }
         TIM1->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM1->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM1->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER1].p_tim_cc4_interrupt != NULL)
         {
@@ -459,10 +462,7 @@ void TIM1_CC_IRQHandler()
         }
         TIM1->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -482,7 +482,8 @@ void TIM2_IRQHandler()
         }
         TIM2->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM2->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM2->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER2].p_tim_cc1_interrupt != NULL)
         {
@@ -490,7 +491,8 @@ void TIM2_IRQHandler()
         }
         TIM2->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM2->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM2->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER2].p_tim_cc2_interrupt != NULL)
         {
@@ -498,7 +500,8 @@ void TIM2_IRQHandler()
         }
         TIM2->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM2->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM2->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER2].p_tim_cc3_interrupt != NULL)
         {
@@ -506,7 +509,8 @@ void TIM2_IRQHandler()
         }
         TIM2->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM2->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM2->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER2].p_tim_cc4_interrupt != NULL)
         {
@@ -514,10 +518,7 @@ void TIM2_IRQHandler()
         }
         TIM2->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -537,7 +538,8 @@ void TIM3_IRQHandler()
         }
         TIM3->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM3->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM3->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER3].p_tim_cc1_interrupt != NULL)
         {
@@ -545,7 +547,8 @@ void TIM3_IRQHandler()
         }
         TIM3->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM3->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM3->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER3].p_tim_cc2_interrupt != NULL)
         {
@@ -553,7 +556,8 @@ void TIM3_IRQHandler()
         }
         TIM3->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM3->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM3->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER3].p_tim_cc3_interrupt != NULL)
         {
@@ -561,7 +565,8 @@ void TIM3_IRQHandler()
         }
         TIM3->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM3->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM3->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER3].p_tim_cc4_interrupt != NULL)
         {
@@ -569,10 +574,7 @@ void TIM3_IRQHandler()
         }
         TIM3->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -592,7 +594,8 @@ void TIM4_IRQHandler()
         }
         TIM4->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM4->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM4->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER4].p_tim_cc1_interrupt != NULL)
         {
@@ -600,7 +603,8 @@ void TIM4_IRQHandler()
         }
         TIM4->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM4->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM4->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER4].p_tim_cc2_interrupt != NULL)
         {
@@ -608,7 +612,8 @@ void TIM4_IRQHandler()
         }
         TIM4->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM4->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM4->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER4].p_tim_cc3_interrupt != NULL)
         {
@@ -616,7 +621,8 @@ void TIM4_IRQHandler()
         }
         TIM4->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM4->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM4->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER4].p_tim_cc4_interrupt != NULL)
         {
@@ -624,10 +630,7 @@ void TIM4_IRQHandler()
         }
         TIM4->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -647,7 +650,8 @@ void TIM5_IRQHandler()
         }
         TIM5->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM5->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM5->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER5].p_tim_cc1_interrupt != NULL)
         {
@@ -655,7 +659,8 @@ void TIM5_IRQHandler()
         }
         TIM5->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM5->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM5->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER5].p_tim_cc2_interrupt != NULL)
         {
@@ -663,7 +668,8 @@ void TIM5_IRQHandler()
         }
         TIM5->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM5->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM5->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER5].p_tim_cc3_interrupt != NULL)
         {
@@ -671,7 +677,8 @@ void TIM5_IRQHandler()
         }
         TIM5->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM5->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM5->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER5].p_tim_cc4_interrupt != NULL)
         {
@@ -679,10 +686,7 @@ void TIM5_IRQHandler()
         }
         TIM5->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -702,7 +706,8 @@ void TIM6_IRQHandler()
         }
         TIM6->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM6->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM6->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER6].p_tim_cc1_interrupt != NULL)
         {
@@ -710,7 +715,8 @@ void TIM6_IRQHandler()
         }
         TIM6->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM6->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM6->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER6].p_tim_cc2_interrupt != NULL)
         {
@@ -718,7 +724,8 @@ void TIM6_IRQHandler()
         }
         TIM6->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM6->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM6->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER6].p_tim_cc3_interrupt != NULL)
         {
@@ -726,7 +733,8 @@ void TIM6_IRQHandler()
         }
         TIM6->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM6->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM6->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER6].p_tim_cc4_interrupt != NULL)
         {
@@ -734,10 +742,7 @@ void TIM6_IRQHandler()
         }
         TIM6->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
-    
-    }
+   
 }
 
 
@@ -757,7 +762,8 @@ void TIM7_IRQHandler()
         }
         TIM7->SR &= ~((uint16_t)0x01 << 0);
     }
-    else if((TIM2->SR & (uint16_t)0x0002) != 0)
+    
+    if((TIM2->SR & (uint16_t)0x0002) != 0)
     {
         if(p_callback_array[TIMER7].p_tim_cc1_interrupt != NULL)
         {
@@ -765,7 +771,8 @@ void TIM7_IRQHandler()
         }
         TIM7->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM7->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM7->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER7].p_tim_cc2_interrupt != NULL)
         {
@@ -773,7 +780,8 @@ void TIM7_IRQHandler()
         }
         TIM7->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM7->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM7->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER7].p_tim_cc3_interrupt != NULL)
         {
@@ -781,7 +789,8 @@ void TIM7_IRQHandler()
         }
         TIM7->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM7->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM7->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER7].p_tim_cc4_interrupt != NULL)
         {
@@ -789,10 +798,7 @@ void TIM7_IRQHandler()
         }
         TIM7->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
     
-    }
 }
 
 
@@ -828,7 +834,8 @@ void TIM8_CC_IRQHandler()
         }
         TIM8->SR &= ~((uint16_t)0x01 << 1);
     }
-    else if((TIM8->SR & (uint16_t)0x0004) != 0)
+    
+    if((TIM8->SR & (uint16_t)0x0004) != 0)
     {
         if(p_callback_array[TIMER8].p_tim_cc2_interrupt != NULL)
         {
@@ -836,7 +843,8 @@ void TIM8_CC_IRQHandler()
         }
         TIM8->SR &= ~((uint16_t)0x01 << 2);
     }
-    else if((TIM8->SR & (uint16_t)0x0008) != 0)
+    
+    if((TIM8->SR & (uint16_t)0x0008) != 0)
     {
         if(p_callback_array[TIMER8].p_tim_cc3_interrupt != NULL)
         {
@@ -844,7 +852,8 @@ void TIM8_CC_IRQHandler()
         }
         TIM8->SR &= ~((uint16_t)0x01 << 3);
     }
-    else if((TIM8->SR & (uint16_t)0x0010) != 0)
+    
+    if((TIM8->SR & (uint16_t)0x0010) != 0)
     {
         if(p_callback_array[TIMER8].p_tim_cc4_interrupt != NULL)
         {
@@ -852,10 +861,7 @@ void TIM8_CC_IRQHandler()
         }
         TIM8->SR &= ~((uint16_t)0x01 << 4);
     }
-    else
-    {
-    
-    }
+   
 }
 
 

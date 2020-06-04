@@ -299,7 +299,7 @@ void ADC1_2_IRQHandler()
             p_adc1_awd_interrupt();
         }
     }
-    else if((ADC1->SR & (((uint32_t)0x01)<<1) )!= 0)
+    if((ADC1->SR & (((uint32_t)0x01)<<1) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_1,EOC);
         if(p_adc1_eoc_interrupt != NULL)
@@ -307,7 +307,7 @@ void ADC1_2_IRQHandler()
             p_adc1_eoc_interrupt();
         }
     }
-    else
+    if((ADC1->SR & (((uint32_t)0x01)<<2) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_1,JEOC);
         if(p_adc1_jeoc_interrupt != NULL)
@@ -324,7 +324,7 @@ void ADC1_2_IRQHandler()
             p_adc2_awd_interrupt();
         }
     }
-    else if((ADC2->SR & (((uint32_t)0x01)<<1) )!= 0)
+    if((ADC2->SR & (((uint32_t)0x01)<<1) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_2,EOC);
         if(p_adc2_eoc_interrupt != NULL)
@@ -332,7 +332,7 @@ void ADC1_2_IRQHandler()
             p_adc2_eoc_interrupt();
         }
     }
-    else
+    if((ADC2->SR & (((uint32_t)0x01)<<2) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_2,JEOC);
         if(p_adc2_jeoc_interrupt != NULL)
@@ -359,8 +359,9 @@ void ADC3_IRQHandler()
         {
             p_adc3_awd_interrupt();
         }
-    }
-    else if((ADC3->SR & (((uint32_t)0x01)<<1) )!= 0)
+    } 
+    
+    if((ADC3->SR & (((uint32_t)0x01)<<1) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_3,EOC);
         if(p_adc3_eoc_interrupt != NULL)
@@ -368,7 +369,8 @@ void ADC3_IRQHandler()
             p_adc3_eoc_interrupt();
         }
     }
-    else
+    
+    if((ADC3->SR & (((uint32_t)0x01)<<2) )!= 0)
     {
         drv_adc_clear_it_flag(ADC_3,JEOC);
         if(p_adc3_jeoc_interrupt != NULL)

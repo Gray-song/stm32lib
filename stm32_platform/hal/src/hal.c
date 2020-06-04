@@ -40,6 +40,6 @@ void hal_init(void)
     hal_nvic_init();
    // hal_gpio_exti_isr_config(GPIO_Pin_5,hal_exti5_isr);
    // hal_gpio_exti_config(GPIO_C,GPIO_Pin_5,EXTI_ModeInterrupt,EXTI_Trigger_Falling,ENABLE_DEF);
-    
+    hal_simulation_iic_init();
     hal_usart_init(USART_1);
 }

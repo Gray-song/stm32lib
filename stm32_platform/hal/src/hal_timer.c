@@ -12,8 +12,12 @@
 */
 #include "hal_timer.h"
 #include "hal_gpio.h"
-
-
+static void hal_tim2_overflow_isr(void);
+static void hal_tim3_over_flow_isr(void);
+static void hal_tim2_cc1_isr(void);
+static uint32_t over_flow_count = 0;
+static uint32_t high_time = 0;
+static uint32_t period = 0;
 /**
   * @brief  hal_timer_init
   * @note   
@@ -43,7 +47,7 @@ void hal_timer_init()
   *
   ******************************************************************************
  */
-void hal_tim3_over_flow_isr()
+static void hal_tim3_over_flow_isr()
 {
     g_do_signal_led1 = !g_do_signal_led1;
     hal_do_output();
@@ -73,8 +77,42 @@ void hal_timer_cap_init(void)
     drv_timer_cap_init(TIMER2,timer_cap_init_struct);
     drv_timer_it_config(TIMER2,TIM_INTERRUPT_CC1,ENABLE_DEF);
     drv_timer_isr_config(TIMER2,hal_tim2_cc1_isr,TIM_INTERRUPT_CC1);
+    drv_timer_it_config(TIMER2,TIM_INTERRUPT_OVER_FLOW,ENABLE_DEF);
+    drv_timer_isr_config(TIMER2,hal_tim2_overflow_isr,TIM_INTERRUPT_OVER_FLOW);
     drv_timer_cmd(TIMER2,ENABLE_DEF);
 
+}
+
+
+/**
+  * @brief  hal_get_pwm_period
+  * @note   
+  * @param  
+  * @retval None
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+ */
+uint32_t hal_get_pwm_period(void)
+{
+    return period;
+}
+
+
+/**
+  * @brief  hal_get_pwm_period
+  * @note   
+  * @param  
+  * @retval None
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+ */
+uint32_t hal_get_high_time(void)
+{
+    return high_time;
 }
 
 
@@ -88,39 +126,73 @@ void hal_timer_cap_init(void)
   *
   ******************************************************************************
  */
-void hal_tim2_cc1_isr(void)
+static void hal_tim2_cc1_isr(void)
 {
-    static bool status = FALSE;
-    static uint32_t over_flow_count = 0;
-    uint16_t tem_up = 0;
-    uint16_t tem_fall = 0;
-    static uint32_t result = 0;
-    if(status == FALSE)
+    static uint8_t step = 0;
+    static uint32_t step0_overflow_count = 0;
+    
+    static uint16_t tem_up_1 = 0;
+    static uint16_t tem_up_2 = 0;
+    static uint16_t tem_fall = 0;
+    
+    if(step == 0)
     {
-        tem_up = drv_get_timer_cap_value(TIMER2,channel1);
-        status = TRUE;
+        tem_up_1 = drv_get_timer_cap_value(TIMER2,channel1);
+        step = 1;
         drv_set_timer_cap_edge(TIMER2,channel1,FALLING);
-        if((drv_get_timer_sr_value(TIMER2) &((uint16_t )0x01)) != 0 )
-        {
-            over_flow_count++;
-        }
+        step0_overflow_count = over_flow_count;
+        
     }
-    else
+    else if(step == 1)
     {
+        
         tem_fall = drv_get_timer_cap_value(TIMER2,channel1);
-        status = FALSE;
+        
+        step = 2;
         drv_set_timer_cap_edge(TIMER2,channel1,RISING);
-        if(tem_fall > tem_up)
+        if(tem_fall > tem_up_1)
         {
-            result =  (tem_fall-tem_up) + (over_flow_count*65535);
+            high_time =  (tem_fall-tem_up_1) + ((over_flow_count-step0_overflow_count)*65535);
         }
         else
         {
-            result = ((65535 - tem_up) + tem_fall)+((over_flow_count-1)*65535);
+            high_time = ((65535 - tem_up_1) + tem_fall)+((over_flow_count-step0_overflow_count)*65535);
         
-        }
-        over_flow_count =0;
+        }   
+        
     }
+    else if(step == 2)
+    {
+        tem_up_2 = drv_get_timer_cap_value(TIMER2,channel1);
+        if(tem_up_2 > tem_up_1)
+        {
+            period =  (tem_up_2-tem_up_1) + ((over_flow_count-step0_overflow_count)*65535);
+        }
+        else
+        {
+            period = ((65535 - tem_up_1) + tem_up_2)+(((over_flow_count-step0_overflow_count)-1)*65535);
+        
+        } 
+        step = 0;
+        over_flow_count = 0;
+        step0_overflow_count = 0;
+    }
+}
+
+
+/**
+  * @brief  hal_tim2_overflow_isr
+  * @note   
+  * @param  
+  * @retval None
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+ */
+static void hal_tim2_overflow_isr(void)
+{
+    over_flow_count++;
 }
 
 
@@ -138,12 +210,12 @@ void hal_timer_pwm_init(void)
 {
     timer_pwm_init_t timer_pwm_init_struct;
     timer_pwm_init_struct.channel = channel1;
-    timer_pwm_init_struct.load_value = 899;
+    timer_pwm_init_struct.load_value = 7199;
     timer_pwm_init_struct.psc = 0;
     timer_pwm_init_struct.oc_mode = PWM_MODE_2;
     timer_pwm_init_struct.pwm_valid_level = HIGH_VALID;
     drv_timer_pwm_init(TIMER1,timer_pwm_init_struct);
     drv_timer_cmd(TIMER1,ENABLE_DEF);
-    drv_set_duty_cycle(TIMER1,channel1,15);
+    drv_set_duty_cycle(TIMER1,channel1,25);
 }
 

@@ -12,6 +12,13 @@
 */
 #ifndef _PLATFORM_CONFIG_H_
 #define _PLATFORM_CONFIG_H_
+
+#define MCU_VERSION_A (uint8_t)1
+#define MCU_VERSION_B (uint8_t)0
+#define MCU_VERSION_C (uint8_t)2
+#define YEAR (uint8_t)20
+#define MONTH (uint8_t)6
+#define DAY (uint8_t)4
 #define DAC_MAX_VOLTAGE 3.3
 #define IO_SIGNALS_COUNT 10
 #define DO_SIGNALS_COUNT 2

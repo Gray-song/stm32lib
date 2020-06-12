@@ -24,6 +24,8 @@
 #include "hal_dac.h"
 #include "hal_simulation_iic.h"
 #include "hal_eeprom_24c02.h"
+#include "hal_spi.h"
+#include "hal_flash.h"
 extern sys_clk_freq_info_t g_sys_clock_info;
 extern void hal_init(void);
 #endif

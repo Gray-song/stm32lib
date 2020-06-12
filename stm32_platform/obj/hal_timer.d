@@ -1,0 +1,12 @@
+..\obj\hal_timer.o: ..\hal\src\hal_timer.c
+..\obj\hal_timer.o: ..\hal\inc\hal_timer.h
+..\obj\hal_timer.o: ..\drv\inc\drv_timer.h
+..\obj\hal_timer.o: ..\drv\inc\stm32f103rc.h
+..\obj\hal_timer.o: ..\drv\inc\typesdef.h
+..\obj\hal_timer.o: ..\sys\stm32f10x.h
+..\obj\hal_timer.o: ..\sys\core_cm3.h
+..\obj\hal_timer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\hal_timer.o: ..\sys\system_stm32f10x.h
+..\obj\hal_timer.o: ..\hal\inc\hal_gpio.h
+..\obj\hal_timer.o: ..\drv\inc\drv_gpio.h
+..\obj\hal_timer.o: ..\hal\inc\platform_config.h

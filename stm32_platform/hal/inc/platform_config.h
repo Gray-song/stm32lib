@@ -15,17 +15,18 @@
 
 #define MCU_VERSION_A (uint8_t)1
 #define MCU_VERSION_B (uint8_t)0
-#define MCU_VERSION_C (uint8_t)2
+#define MCU_VERSION_C (uint8_t)3
 #define YEAR (uint8_t)20
 #define MONTH (uint8_t)6
-#define DAY (uint8_t)4
+#define DAY (uint8_t)12
 #define DAC_MAX_VOLTAGE 3.3
-#define IO_SIGNALS_COUNT 10
+#define IO_SIGNALS_COUNT 14
 #define DO_SIGNALS_COUNT 2
 #define DI_SIGNALS_COUNT 3
 #define NVIC_IRQ_COUNT 4
 #define ADC_SIGNALS_COUNT 2
 #define  USART_CHANNEL_COUNT 5
+
 typedef enum
 {
     DO_LED0 = 0,
@@ -37,7 +38,11 @@ typedef enum
     DI_WK_UP,
     AI_ADC1_CH1,
     AI_ADC1_CH10,
-    AI_DAC_CH1
+    AI_DAC_CH1,
+    SPI1_SCK,
+    SPI1_MISO,
+    SPI1_MOSI,
+    FLASH_CS
 }io_signal_name_t;
 /*IO INIT CONFIG TABLE*/
 #define IO_SIGNALS_CONFIG \
@@ -50,7 +55,13 @@ typedef enum
 /*DI_WK_UP*/            {GPIO_Mode_IN_PULL_DOWN,GPIO_A,GPIO_Pin_0,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
 /*AI_ADC1_CH1*/         {GPIO_Mode_ANALOG_IN,GPIO_A,GPIO_Pin_1,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
 /*AI_ADC1_CH10*/        {GPIO_Mode_ANALOG_IN,GPIO_C,GPIO_Pin_0,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
-/*AI_DAC_CH10*/         {GPIO_Mode_ANALOG_IN,GPIO_A,GPIO_Pin_4,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH}
+/*AI_DAC_CH10*/         {GPIO_Mode_ANALOG_IN,GPIO_A,GPIO_Pin_4,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
+/*SPI1_SCK*/            {GPIO_Mode_AF_PUSH_PULL,GPIO_A,GPIO_Pin_5,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
+/*SPI1_MISO*/           {GPIO_Mode_AF_PUSH_PULL,GPIO_A,GPIO_Pin_6,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
+/*SPI1_MOSI*/           {GPIO_Mode_AF_PUSH_PULL,GPIO_A,GPIO_Pin_7,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH},\
+/*FLASH_CS*/            {GPIO_Mode_Out_PUSH_PULL,GPIO_A,GPIO_Pin_2,GPIO_Speed_50MHz,DIO_ACTIVE_HIGH}
+
+
 
 /*IO DIGITAL OUTPUT CONFIG TABLE*/
 #define APP_DO_CONFIG \
@@ -68,7 +79,8 @@ typedef enum
 {USART1_IRQn,3,3,ENABLE_DEF},\
 {TIM3_IRQn,1,3,ENABLE_DEF},\
 {TIM2_IRQn,1,2,ENABLE_DEF},\
-{ADC1_2_IRQn,1,1,ENABLE_DEF}
+{ADC1_2_IRQn,1,1,ENABLE_DEF},\
+
 //{EXTI9_5_IRQn,2,2,ENABLE_DEF}
 
 #define USART_CONFIG \

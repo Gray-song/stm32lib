@@ -1,0 +1,10 @@
+..\obj\hal_nvic.o: ..\hal\src\hal_nvic.c
+..\obj\hal_nvic.o: ..\hal\inc\hal_nvic.h
+..\obj\hal_nvic.o: ..\drv\inc\drv_nvic.h
+..\obj\hal_nvic.o: ..\drv\inc\stm32f103rc.h
+..\obj\hal_nvic.o: ..\drv\inc\typesdef.h
+..\obj\hal_nvic.o: ..\sys\stm32f10x.h
+..\obj\hal_nvic.o: ..\sys\core_cm3.h
+..\obj\hal_nvic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\hal_nvic.o: ..\sys\system_stm32f10x.h
+..\obj\hal_nvic.o: ..\hal\inc\platform_config.h
